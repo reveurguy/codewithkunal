@@ -1,15 +1,22 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Serif_4 } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 
-const fontSans = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const fontSerif = Source_Serif_4({
-  subsets: ['latin'],
-  style: ['italic', 'normal'],
-  variable: '--font-serif',
+const fontTitle = localFont({
+  src: '../fonts/ClashGrotesk-Variable.woff2',
+  weight: 'variable',
+  fallback: ['Inter', 'sans-serif'],
+  variable: '--font-title',
+});
+
+const fontBody = localFont({
+  src: '../fonts/Satoshi-Variable.woff2',
+  weight: 'variable',
+  fallback: ['Inter', 'sans-serif'],
+  variable: '--font-body',
 });
 
 export const metadata: Metadata = {
@@ -41,9 +48,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'font-sans antialiased',
-          fontSans.variable,
-          fontSerif.variable
+          'font-body antialiased',
+          fontTitle.variable,
+          fontBody.variable
         )}
       >
         <ThemeProvider
