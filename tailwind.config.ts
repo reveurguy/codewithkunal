@@ -74,8 +74,13 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
-        serif: ['var(--font-serif)', ...fontFamily.serif],
+        title: ['var(--font-title)', ...fontFamily.sans],
+        body: [
+          'var(--font-body)',
+          {
+            fontFeatureSettings: '"ss01"',
+          },
+        ],
       },
     },
   },
